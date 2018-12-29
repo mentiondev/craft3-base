@@ -1,7 +1,7 @@
 {
   "name": "mentiondev/craft3-base",
   "description": "A craft 3 starter project",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "keywords": [
     "craft",
     "cms",
@@ -13,9 +13,11 @@
   "minimum-stability": "RC",
   "require": {
     "craftcms/cms": "^3.0.0",
-    "vlucas/phpdotenv": "^2.4.0",
     "nystudio107/craft-minify": "^1.2",
-    "nystudio107/craft-typogrify": "^1.1"
+    "nystudio107/craft-scripts": "^1.2",
+    "nystudio107/craft-typogrify": "^1.1",
+    "nystudio107/craft3-multi-environment": "^1.0",
+    "vlucas/phpdotenv": "^2.4.0"
   },
   "autoload": {
     "psr-4": {
