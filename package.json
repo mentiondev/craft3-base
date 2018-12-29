@@ -1,0 +1,90 @@
+{
+  "name": "craft3-base.local",
+  "version": "1.0.0",
+  "description": "_by Mention Design_",
+  "main": "gulpfile.js",
+  "license": "ISC",
+  "paths": {
+    "src": {
+      "base": "./src/",
+      "css": "./src/css/",
+      "fonts": "./src/fonts/",
+      "js": "./src/js/",
+      "img": "./src/img/",
+      "scss": "./src/scss/"
+    },
+    "dist": {
+      "base": "./web/",
+      "css": "./web/css/",
+      "js": "./web/js/",
+      "fonts": "./web/fonts/",
+      "img": "./web/img/"
+    },
+    "templates": "./templates/",
+    "craftConfig": "./config/"
+  },
+  "globs": {
+    "distJs": [
+      "./node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js",
+      "./node_modules/flickity/dist/flickity.pkgd.min.js",
+      "./node_modules/lightgallery/dist/js/lightgallery.min.js",
+      "./node_modules/lightgallery/modules/lg-autoplay.min.js",
+      "./node_modules/lightgallery/modules/lg-fullscreen.min.js",
+      "./node_modules/lightgallery/modules/lg-video.min.js",
+      "./node_modules/lazysizes/lazysizes.min.js",
+      "./node_modules/lazysizes/plugins/object-fit/ls.object-fit.min.js",
+      "./node_modules/lazysizes/plugins/parent-fit/ls.parent-fit.min.js",
+      "./node_modules/lazysizes/plugins/respimg/ls.respimg.min.js",
+      "./node_modules/smooth-scroll/dist/smooth-scroll.min.js"
+    ]
+  },
+  "dependencies": {
+    "bootstrap-sass": "^3.4.0",
+    "flickity": "^2.1.2",
+    "include-media": "^1.4.9",
+    "jquery": "^3.3.1",
+    "lazysizes": "^4.1.5",
+    "lightgallery": "^1.6.11",
+    "smooth-scroll": "^15.0.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.14.0",
+    "browserify": "^16.2.3",
+    "del": "^3.0.0",
+    "fancy-log": "^1.3.3",
+    "gulp": "3.9.*",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-cache": "^1.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-filter": "^5.1.0",
+    "gulp-group-css-media-queries": "^1.2.0",
+    "gulp-if": "^2.0.2",
+    "gulp-imagemin": "^5.0.3",
+    "gulp-livereload": "^4.0.1",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-newer": "^1.4.0",
+    "gulp-order": "^1.1.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-size": "^3.0.0",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.1",
+    "gulp-useref": "^3.1.2",
+    "run-sequence": "^2.2.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mentiondev/craft3-base.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/mentiondev/craft3-base/issues"
+  },
+  "homepage": "https://github.com/mentiondev/craft3-base#readme"
+}

@@ -1,0 +1,56 @@
+{% spaceless %}
+
+  {% set env = craft.app.config.general.custom.craftEnv %}
+  {% set staticAssetsVersion = craft.app.config.general.custom.staticAssetsVersion %}
+  {% set firstSegment = craft.app.request.segments|first %}
+  {% header "Link: <#{siteUrl}>; rel=dns-prefetch;,<#{siteUrl}>; rel=preconnect; crossorigin;" %}
+
+{% endspaceless %}<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <link rel="dns-prefetch" href="{{ siteUrl }}">
+    <link rel="preconnect" href="{{ siteUrl }}" crossorigin>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="referrer" content="origin-when-cross-origin">
+
+    {# <meta name="google-site-verification" content=""> #}
+
+    <link href="{{ siteUrl }}css/main{% if env != 'local' %}.{{staticAssetsVersion}}{% endif %}.css" rel="stylesheet">
+
+    {# favicon #}
+    {# <link rel="shortcut icon" href="{{ globalAssets.favicon.one().getUrl() }}" type="image/x-icon"> #}
+  </head>
+  <body>
+    {% block preloader %}
+    {% endblock %}
+
+    {% block header %}
+
+      {% include '_partials/nav' %}
+
+    {% endblock %}
+
+    {% block main %}
+
+        <p>This section will be overidden by the layout.html.twig file</p>
+
+    {% endblock %}
+
+    {% block footer %}
+
+        {% include '_partials/footer' %}
+
+    {% endblock %}
+
+    {% block scripts %}
+    {# include jQuery library #}
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="{{ url('js/vendors/jquery-3.3.1.min.js') }}"><\/script>')</script>
+    {# include js files #}
+    <script src="{{ siteUrl }}js/external.min{% if env != 'local' %}.{{staticAssetsVersion}}{% endif %}.js"></script>
+    <script src="{{ siteUrl }}js/custom.min{% if env != 'local' %}.{{staticAssetsVersion}}{% endif %}.js"></script>
+    {% endblock %}
+
+  </body>
+</html>

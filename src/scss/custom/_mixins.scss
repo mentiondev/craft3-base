@@ -1,0 +1,71 @@
+// section padding
+@mixin section-padding($padding-xs, $padding-sm, $padding-md) {
+  padding-top: $padding-xs;
+  padding-bottom: $padding-xs;
+  @include media("≥col-sm") {
+    padding-top: $padding-sm;
+    padding-bottom: $padding-sm;
+  }
+  @include media("≥col-md") {
+    padding-top: $padding-md;
+    padding-bottom: $padding-md;
+  }
+}
+
+// top padding
+@mixin padding-top($padding-xs, $padding-sm, $padding-md) {
+  padding-top: $padding-xs;
+  @include media("≥col-sm") {
+    padding-top: $padding-sm;
+  }
+  @include media("≥col-md") {
+    padding-top: $padding-md;
+  }
+}
+
+// Bottom padding
+@mixin padding-bottom($padding-xs, $padding-sm, $padding-md) {
+  padding-bottom: $padding-xs;
+  @include media("≥col-sm") {
+    padding-bottom: $padding-sm;
+  }
+  @include media("≥col-md") {
+    padding-bottom: $padding-md;
+  }
+}
+
+// section margins
+@mixin section-margin($margin-xs, $margin-sm, $margin-md) {
+  margin-top: $margin-xs;
+  margin-bottom: $margin-xs;
+  @include media("≥col-sm") {
+    margin-top: $margin-sm;
+    margin-bottom: $margin-sm;
+  }
+  @include media("≥col-md") {
+    margin-top: $margin-md;
+    margin-bottom: $margin-md;
+  }
+}
+
+// Bottom margin
+@mixin margin-bottom($margin-xs, $margin-sm, $margin-md) {
+  margin-bottom: $margin-xs;
+  @include media("≥col-sm") {
+    margin-bottom: $margin-sm;
+  }
+  @include media("≥col-md") {
+    margin-bottom: $margin-md;
+  }
+}
+
+// Bottom margin
+@mixin margin-top($margin-xs, $margin-sm, $margin-md) {
+  margin-top: $margin-xs;
+  @include media("≥col-sm") {
+    margin-top: $margin-sm;
+  }
+  @include media("≥col-md") {
+    margin-top: $margin-md;
+  }
+}

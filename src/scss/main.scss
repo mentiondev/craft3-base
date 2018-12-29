@@ -1,0 +1,37 @@
+/* ---------------------------------------------------------
+   include-media mixin variables
+---------------------------------------------------------*/
+
+$breakpoints: (
+  'col-sm': 768px,
+  'col-md': 992px,
+  'col-lg': 1200px
+);
+
+// ligatured operators ≥ ≤
+
+/* ---------------------------------------------------------
+   1. Include vendors styles: bootstrap, icomoon fonts
+---------------------------------------------------------*/
+
+@import 'vendors/include-media';
+@import 'vendors/bootstrap';
+@import 'vendors/flickity';
+@import 'vendors/lightgallery';
+// @import 'vendors/icomoon';
+@import 'vendors/cookieconsent';
+
+/* ---------------------------------------------------------
+   2. Partials
+---------------------------------------------------------*/
+
+@import 'custom/mixins';
+@import 'custom/footer';
+@import 'custom/nav';
+@import 'custom/section-padding';
+
+/* ---------------------------------------------------------
+   3. General site styles
+---------------------------------------------------------*/
+
+@import 'custom/style';

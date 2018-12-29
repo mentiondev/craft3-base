@@ -1,0 +1,68 @@
+.section-padding {
+  @include padding-top(2.5em,4em,4em);
+  @include padding-bottom(2.5em,4em,4em);
+  &__top {
+    &--none {
+      @include padding-top(0,0,0);
+    }
+    &--small {
+      @include padding-top(1.25em,2em,2em);
+    }
+    &--medium {
+      @include padding-top(1.5em,2.5em,2.5em);
+    }
+    &--large {
+      @include padding-top(2em,3.5em,3.5em);
+    }
+    &--xlarge {
+      @include padding-top(3em,5em,5em);
+    }
+    &--xxlarge {
+      @include padding-top(4em,6em,6em);
+    }
+  }
+  &__bottom {
+    &--none {
+      @include padding-bottom(0,0,0);
+    }
+    &--small {
+      @include padding-bottom(1.25em,2em,2em);
+    }
+    &--medium {
+      @include padding-bottom(1.5em,2.5em,2.5em);
+    }
+    &--large {
+      @include padding-bottom(2em,3.5em,3.5em);
+    }
+    &--xlarge {
+      @include padding-bottom(3em,5em,5em);
+    }
+    &--xxlarge {
+      @include padding-bottom(4em,6em,6em);
+    }
+  }
+  &--xsmall {
+    @include padding-top(0.5em,1em,1em);
+    @include padding-bottom(0.5em,1em,1em);
+  }
+  &--small {
+    @include padding-top(1.25em,2em,2em);
+    @include padding-bottom(1.25em,2em,2em);
+  }
+  &--medium {
+    @include padding-top(1.5em,2.5em,2.5em);
+    @include padding-bottom(1.5em,2.5em,2.5em);
+  }
+  &--large {
+    @include padding-top(2em,3.5em,3.5em);
+    @include padding-bottom(2em,3.5em,3.5em);
+  }
+  &--xlarge {
+    @include padding-top(3em,5em,5em);
+    @include padding-bottom(3em,5em,5em);
+  }
+  &--xxlarge {
+    @include padding-top(4em,6em,6em);
+    @include padding-bottom(4em,6em,6em);
+  }
+}
