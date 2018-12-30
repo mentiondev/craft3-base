@@ -1,3 +1,103 @@
 # Craft 3 Starter Project
 
-_by Mention Design_
+_by Mention_
+
+This is a forked project of the excellent https://github.com/nystudio107/craft with my own customisations
+
+## Assumptions
+
+Since this is boilerplate that mention uses for projects, it is by definition opinionated, and has a number of assumptions:
+
+* Gulp is used as a the frontend workflow automation tool
+* Bootstrap 3 is used for the CSS framework
+* Nginx or Apache are used as the web server
+* MAMP Pro is used for the local database, so you need to edit for other setups
+* Craft-Scripts are used for db/asset synching
+* Craft 3 Multi-Environment is used for the Craft 3 multi-environment setup
+
+Obviously you're free to remove whatever components you don't need/want to use.
+
+## Initial setup using mentiondev/craft3-base
+
+This project package works exactly the way Pixel & Tonic's [craftcms/craft](https://github.com/craftcms/craft) package works; you create a new project by first creating & installing the project:
+
+    composer create-project mentiondev/craft3-base PATH
+
+Make sure that `PATH` is the path to your project, including the name you want for the project, e.g.:
+
+    composer create-project mentiondev/craft3-base PATH
+
+Then `cd` to your new project directory, and run Craft's `setup` console command to create your `.env` environments and optionally install:
+
+    cd PATH
+    ./craft setup
+
+Next, run the `nys-setup` command to configure Craft-Scripts & Craft 3 Multi-Environment based on your newly created `.env` settings:
+
+    ./nys-setup
+
+If you ever delete the `vendor` folder or such, just re-run:
+
+    ./nys-setup
+
+...and it will re-create the symlink to your `.env.sh`
+
+Next edit the `.env.gulp.json` file to point to local url you've chosen. This is required for browsersync to work.
+
+Finally, in the terminal in the project root type
+
+    gulp
+
+And browsersync will start the browser, and it's ready to start using.
+
+
+## db/asset synching via craft-scripts
+
+There are several scripts included in `craft-scripts`, each of which perform different functions. They all use a shared `.env.sh` to function. This `.env.sh` should be created on each environment where you wish to run the `craft-scripts`, and it should be excluded from your git repo via `.gitignore`.
+
+### Setup
+* Open up the .env.sh file into your favorite editor, and replace REPLACE_ME with the appropriate settings.
+
+### pull_db.sh
+
+To pull down a database dump from a remote server type
+
+    ./pull_db.sh
+
+The `pull_db.sh` script pulls down a database dump from a remote server, and then dumps it into your local database. It backs up your local database before doing the dump.
+
+The db dumps that `craft-scripts` does will exclude tables that are temporary/cache tables that we don't want in our backups/restores, such as the `templatecaches` table.
+
+See [Database & Asset Syncing Between Environments in Craft CMS](https://nystudio107.com/blog/database-asset-syncing-between-environments-in-craft-cms) for a detailed writeup.
+
+**N.B.:** The `pull_db.sh` script can be used even if the local and remote are on the same server.
+
+### pull_assets.sh
+
+To pull down asset directories from a remote server type
+
+    ./pull_assets.sh
+
+The `pull_assets.sh` script pulls down an arbitrary number of asset directories from a remote server, since we keep client-uploadable assets out of the git repo. The directories it will pull down are specified in `LOCAL_ASSETS_DIRS`
+
+It will also pull down the Craft `userphotos` and `rebrand` directories from `craft/storage` by default. The directories it will pull down are specified in `LOCAL_CRAFT_FILE_DIRS`
+
+See [Database & Asset Syncing Between Environments in Craft CMS](https://nystudio107.com/blog/database-asset-syncing-between-environments-in-craft-cms) for a detailed writeup.
+
+**N.B.:** The `pull_assets.sh` script can be used even if the local and remote are on the same server.
+
+### pull_backups.sh
+
+To pull down script pulls down the backups created by `craft-scripts` from a remote server type
+
+    ./pull_backups.sh
+
+The `pull_backups.sh` script pulls down the backups created by `craft-scripts` from a remote server, and synced into the `LOCAL_BACKUPS_PATH`
+
+For database backups, a sub-directory `REMOTE_DB_NAME/db` inside the `REMOTE_BACKUPS_PATH` directory is used for the database backups.
+
+For asset backups, a sub-directory `REMOTE_DB_NAME/assets` inside the `REMOTE_BACKUPS_PATH` directory is used for the asset backups.
+
+Because `rsync` is used for these backups, you can put a `.rsync-filter` in any directory to define files/folders to ignore. [More info](http://serverfault.com/questions/414358/rsync-filter-file-rules-for-subpath)
+
+See [Mitigating Disaster via Website Backups](https://nystudio107.com/blog/mitigating-disaster-via-website-backups) for a detailed writeup.
