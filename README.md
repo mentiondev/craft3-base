@@ -82,7 +82,7 @@ before the filename. For example:
 
     <link href="{{ siteUrl }}css/main{% if env != 'local' %}.{{staticAssetsVersion}}{% endif %}.css" rel="stylesheet">
 
-This will output `<link href="http://<siteurl>/css/main.1.css" rel="stylesheet">` on the live site so that it cached for that version number and `<link href="https://<siteurl>/css/main.1546193063.css" rel="stylesheet">` on the staging site, as the staging site uses the `time()` tag for the staticAssetsVersion number, so that it not cached on the development server while changes are regularly being made, as this changes every second.
+This will output `<link href="http://<siteurl>/css/main.1.css" rel="stylesheet">` on the live site so that it is cached for that version number and `<link href="https://<siteurl>/css/main.1546193063.css" rel="stylesheet">` on the staging site, as the staging site uses the `time()` tag for the Static Assets Version number, so that it is not cached on the development server while changes are regularly being made, as this changes every second.
 
 To bust the cache on the live site, go to the terminal in the project root and type:
 
@@ -90,15 +90,15 @@ To bust the cache on the live site, go to the terminal in the project root and t
 
 Which will increase the staticAssetsVersion number by 1
 
-Then on the nginx config on the server add
+For `{{staticAssetsVersion}}` to work it the following needs to be added to the nginx config on the server at the top of the file
 
     location ~* (.+)\.(?:\d+)\.(js|css|png|jpg|jpeg|gif|webp)$ {
       try_files $uri $1.$2;
     }
 
-at the top of the file, and `restart` the server.
+and `restart` the server.
 
-This will make the browser not see any num­bers before the sta­t­ic asset file­name exten­sion, but force it to download a new version of the file if the number has been changed.
+This will make the browser not see any num­bers before the sta­t­ic asset file­name exten­sion, and then force the browser to download a new version of the file if the number has been changed, hence, busting the cache.
 
 Again, for a full explanation see [Simple Static Asset Versioning in Craft CMS](https://nystudio107.com/blog/simple-static-asset-versioning)
 
