@@ -8,7 +8,7 @@ This is a forked project of the excellent [nystudio107 Craft 3 CMS scaffolding p
 Since this is boilerplate that mention uses for projects, it is by definition opinionated, and has a number of assumptions:
 
 * Local setup is done via the command line
-* Gulp is used as a the frontend workflow automation tool
+* Gulp is used as the frontend workflow automation tool
 * NPM or YARN are setup
 * Bootstrap 3 is used for the CSS framework
 * Nginx is used as the web server
@@ -72,13 +72,17 @@ And then copy these to the `config/volumes.php` file
 
 This is created using the method described in [Simple Static Asset Versioning in Craft CMS](https://nystudio107.com/blog/simple-static-asset-versioning)
 
-I've included twig tag called `{{ staticAssetsVersion }}` which references `craft.app.config.general.custom.staticAssetsVersion` in the `config/general.twig`
+I've included a twig tag called `{{ staticAssetsVersion }}` which references `craft.app.config.general.custom.staticAssetsVersion` in the `config/general.twig`
 
 To use it add
 
     {% if env != 'local' %}.{{ staticAssetsVersion }}{% endif %}
 
-before the filename.
+before the filename. For example:
+
+    <link href="{{ siteUrl }}css/main{% if env != 'local' %}.{{staticAssetsVersion}}{% endif %}.css" rel="stylesheet">
+
+This will output `<link href="http://<siteurl>/css/main.1.css" rel="stylesheet">` on the live site so that it cached for that version number and `<link href="https://<siteurl>/css/main.1546193063.css" rel="stylesheet">` on the staging site, as the staging site uses the `time()` tag for the staticAssetsVersion number, so that it not cached on the development server while changes are regularly being made, as this changes every second.
 
 To bust the cache on the live site, go to the terminal in the project root and type:
 
