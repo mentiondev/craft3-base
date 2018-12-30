@@ -12,9 +12,6 @@
 /storage/*
 !/storage/.gitkeep
 
-# ASSETS
-/web/assets/*
-
 # BUILD FILES
 /bower_components/*
 /node_modules/*
