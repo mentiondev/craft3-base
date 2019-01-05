@@ -12,7 +12,7 @@ Since this is boilerplate that mention uses for projects, it is by definition op
 * NPM or YARN are setup
 * Bootstrap 3 is used for the CSS framework
 * Nginx is used as the web server
-* MAMP Pro is used for the local database, so will need editing for other setups
+* MAMP Pro is used for the local database with Sequel Pro, so will need editing for other setups
 * [nystudio107/craft-scripts](https://github.com/nystudio107/craft-scripts) are used for database/asset synching and backups
 * [nystudio107/craft3-multi-environment](https://github.com/nystudio107/craft3-multi-environment) is used for the Craft 3 multi-environment setup
 
@@ -29,7 +29,11 @@ Make sure that `PATH` is the path to your project, including the name you want f
 
     composer create-project mentiondev/craft3-base PATH
 
-Then `cd` to your new project directory, and run Craft's `setup` console command to create your `.env` environments and optionally install:
+Next go to MAMP Pro and `create a new host` and point it to the `/web` folder in the project you created.
+
+Also `create a new database` and note/copy the name as will be needed in the craft setup. Then click save to restart the local apache and mysql.
+
+Then back in the terminal `cd` to your new project directory, and run Craft's `setup` console command to create your `.env` environments and optionally install:
 
     cd PATH
     ./craft setup
