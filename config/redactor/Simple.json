@@ -1,4 +1,5 @@
 {
-	"buttons": ["bold", "italic"],
-	"toolbarFixed": true
+  "buttons": ["html", "format", "bold", "italic", "lists", "link"],
+	"toolbarFixed": true,
+  "plugins": ["fullscreen"]
 }
