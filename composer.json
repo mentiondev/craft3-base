@@ -1,7 +1,7 @@
 {
   "name": "mentiondev/craft3-base",
   "description": "A craft 3 starter project",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "keywords": [
     "craft",
     "cms",
@@ -40,10 +40,12 @@
       "@php nys-setup welcome"
     ],
     "post-update-cmd": [
-      "@php nys-setup update"
+      "@php nys-setup update",
+      "./craft migrate/all"
     ],
     "post-install-cmd": [
-      "@php nys-setup update"
+      "@php nys-setup update",
+      "./craft migrate/all"
     ]
   }
 }
