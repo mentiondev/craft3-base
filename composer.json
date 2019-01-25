@@ -1,7 +1,7 @@
 {
   "name": "mentiondev/craft3-base",
   "description": "A craft 3 starter project",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "keywords": [
     "craft",
     "cms",
@@ -11,7 +11,7 @@
   "license": "MIT",
   "type": "project",
   "require": {
-    "craftcms/cms": "^3.0.0",
+    "craftcms/cms": "~3.0.0",
     "nystudio107/craft-minify": "^1.2",
     "nystudio107/craft-scripts": "^1.2",
     "nystudio107/craft-typogrify": "^1.1",
@@ -38,14 +38,6 @@
     "post-create-project-cmd": [
       "@php craft setup/welcome",
       "@php nys-setup welcome"
-    ],
-    "post-update-cmd": [
-      "@php nys-setup update",
-      "./craft migrate/all"
-    ],
-    "post-install-cmd": [
-      "@php nys-setup update",
-      "./craft migrate/all"
     ]
   }
 }
